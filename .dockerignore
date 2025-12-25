@@ -1,0 +1,30 @@
+# Node modules
+frontend/node_modules
+frontend/.vite
+
+# Python cache
+backend/__pycache__
+backend/*.pyc
+backend/.pytest_cache
+
+# Git
+.git
+.gitignore
+
+# Environment files (copy manually if needed)
+.env
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Docker
+Dockerfile
+docker-compose.yml
