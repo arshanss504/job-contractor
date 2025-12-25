@@ -14,7 +14,7 @@ A full-stcak web application for managing job contracts, applications, invoices,
 ### Backend
 - Python
 - FastAPI
-- Sqlalchmy (db Orm)
+- Sqlalchemy (db Orm)
 - Jwt for authentication
 
 ### Frontend
