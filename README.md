@@ -1,23 +1,21 @@
 # Job Contract Module
 
-A full-stack web application for managing job contracts, applications, invoices, and work plans. It includes separate dashboards for agents and contractors.
+A full-stcak web application for managing job contracts, applications, invoices, and work plans. It includes separate dashboards for agents and contractors.
 
 ## Features
 
-- User authentication and registration
-- Job posting and application management
-- Invoice generation and tracking
-- Work plan creation and monitoring
-- Role-based access control (RBAC)
-- Separate dashboards for agents and contractors
+- User auth and signup
+- Role-based acces control (RBAC) using jwt
+- Agent: Creates jobs, Reviews applications, Approves/rejects
+- Contractor: View Jobs, Apply, Plan Work, Generate Invoice
 
 ## Tech Stack
 
 ### Backend
 - Python
 - FastAPI
-- SQLAlchemy (database ORM)
-- JWT for authentication
+- Sqlalchmy (db Orm)
+- Jwt for authentication
 
 ### Frontend
 - TypeScript
@@ -25,49 +23,31 @@ A full-stack web application for managing job contracts, applications, invoices,
 - Vite
 - Axios for API calls
 
-## Setup Instructions
-
-### Prerequisites
-- Python 3.8+
-- Node.js 16+
-- npm or yarn
 
 ### Backend Setup
-1. Navigate to the `backend` directory:
+
+Run the backend server:
+
    ```
-   cd backend
-   ```
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-3. Run the backend server:
-   ```
+   pip install -r requriments.txt
    uvicorn app.main:app --reload
    ```
 
 ### Frontend Setup
-1. Navigate to the `frontend` directory:
-   ```
-   cd frontend
-   ```
-2. Install dependencies:
+
+Install dependencies:
+
    ```
    npm install
    ```
-3. Run the development server:
+
+Run the development server:
+ 
    ```
    npm run dev
    ```
 
-## Usage
+### Ports
 
-- Access the application at `http://localhost:5173` (frontend)
-- Backend API available at `http://localhost:8000`
-- Register as an agent or contractor
-- Login to access your dashboard
-- Manage jobs, applications, invoices, and work plans
-
-## API Documentation
-
-Once the backend is running, visit `http://localhost:8000/docs` for interactive API documentation.
+- Frnotend `http://localhost:5173` 
+- Backend `http://localhost:8000`
