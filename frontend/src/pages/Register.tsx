@@ -10,6 +10,7 @@ const Register: React.FC = () => {
   const [skills, setSkills] = useState('');
   const [education, setEducation] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const [role, setRole] = useState<UserRole>(UserRole.CONTRACTOR);
   const [error, setError] = useState('');
@@ -20,6 +21,12 @@ const Register: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setPasswordError('');
+
+    if (password.length < 6) {
+      setPasswordError('Password must be at least 6 characters long');
+      return;
+    }
 
     try {
       const newUser = await register(name, role, password, email, contactNumber, skills, education);
@@ -114,10 +121,21 @@ const Register: React.FC = () => {
               type="password"
               required
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                if (passwordError) setPasswordError('');
+              }}
               className="input"
               placeholder="Create a password"
             />
+            {passwordError && (
+              <p style={{ color: '#d32f2f', fontSize: '0.875rem', marginTop: '0.25rem' }}>
+                {passwordError}
+              </p>
+            )}
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem', marginTop: '0.25rem' }}>
+              Password must be at least 6 characters long
+            </p>
           </div>
           {role === UserRole.CONTRACTOR && (
             <>
