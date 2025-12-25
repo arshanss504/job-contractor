@@ -1,0 +1,19 @@
+from jose import jwt, JWTError
+from datetime import datetime, timedelta
+
+SECRET_KEY = "dev-secret-key"   # move to env later
+ALGORITHM = "HS256"
+TOKEN_EXPIRE_MINUTES = 60 * 24  # 1 day
+
+
+def create_access_token(data: dict):
+    payload = data.copy()
+    payload["exp"] = datetime.utcnow() + timedelta(minutes=TOKEN_EXPIRE_MINUTES)
+    return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
+
+
+def decode_access_token(token: str):
+    try:
+        return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+    except JWTError:
+        return None
